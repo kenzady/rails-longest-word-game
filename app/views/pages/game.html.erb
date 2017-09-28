@@ -1,0 +1,15 @@
+<h1> Welcome to the longest word-game! </h1>
+
+<h2> Here is your grid: </h2>
+<%= grid = @generate_grid.join(" ") %>
+
+
+<form action="/score">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="attempt">Your guess</label>
+  <input type="text" id="attempt" name="guess" placeholder="what time is it?">
+  <input type="submit" value="Let's play!" class="btn btn-primary">
+  <input type="hidden"  name="start_time" value='<%="#{Time.now}"%>'>
+  <input type="hidden"  name="grid" value='<%="#{grid}"%>'>
+
+</form>
