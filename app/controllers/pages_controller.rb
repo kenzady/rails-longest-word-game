@@ -19,7 +19,7 @@ class PagesController < ApplicationController
   end
 
   def included?(guess, grid)
-    guess.chars.all? { |letter| guess.count(letter) <= grid.count(letter) }
+    guess.chars.all? { |letter| guess.count(letter) <= grid.split(' ').count(letter) }
   end
 
   def compute_score(attempt, time_taken)
